@@ -1,4 +1,4 @@
-package intership.dev.contact;
+package intership.dev.contact.Model;
 
 /**
  * Created by nhokquay9x26 on 7/20/15.
