@@ -3,5 +3,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="77dp">
+
+        <intership.dev.contact.widget.CircleImageView
+            android:id="@+id/imgAvatar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="22dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/ic_avt1">
+        </intership.dev.contact.widget.CircleImageView>
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/imgAvatar"
+            android:textSize="23sp"
+            android:gravity="center_vertical"
+            android:text="Name"/>
+
+        <ImageView
+            android:id="@+id/imgEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_edit"
+            android:layout_toLeftOf="@id/imgDelete"
+            android:layout_marginRight="5dp"
+            android:layout_centerVertical="true"
+            android:scaleType="center"/>
+
+        <ImageView
+            android:id="@+id/imgDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="17dp"
+            android:src="@drawable/ic_delete"
+            android:layout_centerVertical="true"
+            android:scaleType="center"/>
+
+    </RelativeLayout>
+
+
 
 </RelativeLayout>
