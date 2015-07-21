@@ -6,4 +6,13 @@
     <dimen name="relativelayout.item.size">53dp</dimen>
     <dimen name="relativelayout.list.size.contact">53dp</dimen>
     <dimen name="textview.size.tvContact">23dp</dimen>
+
+    <dimen name="relativelayout.item.layout_hight">64dp</dimen>
+    <dimen name="texttview.size.tvName">23dp</dimen>
+
+    <dimen name="imageview.circle.size.right">22dp</dimen>
+    <dimen name="imageview.circle.size.left">16dp</dimen>
+
+    <dimen name="imageview.button.size.right">5dp</dimen>
+    <dimen name="imageview.button.size.left">17dp</dimen>
 </resources>
