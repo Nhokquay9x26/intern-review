@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,12 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
     ArrayList<Contact> mContacts;
     ContactHolder holder;
 
+    /**
+     *
+     * @param context
+     * @param layoutID
+     * @param mContacts
+     */
     public ContactAdapter(Activity context, int layoutID, ArrayList<Contact> mContacts) {
         super(context, layoutID, mContacts);
         this.context = context;
@@ -42,7 +49,7 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
 
             holder.imgAvatar = (ImageView) convertView.findViewById(R.id.imgAvatar);
             holder.imgEdit = (ImageView) convertView.findViewById(R.id.imgEdit);
-            holder.imgDelete = (ImageView) convertView.findViewById(R.id.imgDelete);
+            holder.imgDelete = (ImageView) convertView.findViewById(R.id.imgDeleteOff);
             holder.tvName = (TextView) convertView.findViewById(R.id.tvName);
             convertView.setTag(holder);
         } else {
@@ -55,10 +62,10 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
         holder.imgDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name = holder.tvName.getText().toString();
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext());
-                alertDialog.setMessage("Are you sure you to delete " + name +" ?")
+                alertDialog.setMessage(Html.fromHtml("Are you sure you to delete " + "<b>" + mContacts.get(position).getmNameContacts() + "</b>" + " ?"))
                         .setTitle(null)
+                        .setInverseBackgroundForced(true)
                         .setNegativeButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
