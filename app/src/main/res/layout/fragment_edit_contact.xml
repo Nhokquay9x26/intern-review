@@ -4,32 +4,6 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
-        android:id="@+id/rlToolBar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/relativelayout.list.size.contact"
-        android:background="@color/aqua">
-
-        <ImageView
-            android:id="@+id/imgBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
-            android:scaleType="center"
-            android:src="@drawable/ic_back" />
-
-        <TextView
-            android:id="@+id/tvHeaderContacts"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/textview.text.tv_header_contacts"
-            android:textColor="@color/white"
-            android:textSize="@dimen/textview.size.tvContact" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
         android:id="@+id/rlInfomation"
         android:layout_width="match_parent"
         android:layout_below="@+id/rlToolBar"
@@ -90,7 +64,7 @@
         android:layout_alignParentBottom="true">
 
         <Button
-            android:id="@+id/btnOk"
+            android:id="@+id/btnSave"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

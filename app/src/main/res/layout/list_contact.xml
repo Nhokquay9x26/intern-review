@@ -1,14 +1,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contaner"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <RelativeLayout
         android:id="@+id/rlToolBar"
-        android:background="@color/aqua"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/relativelayout.list.size.contact">
+        android:layout_height="@dimen/relativelayout.list.size.contact"
+        android:background="@color/aqua">
 
         <ImageView
             android:id="@+id/imgBack"
@@ -30,12 +31,12 @@
 
     </RelativeLayout>
 
-    <intership.dev.contact.widget.LoadMoreListView
-        android:id="@+id/lvContacts"
+    <FrameLayout
+        android:id="@+id/frContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/rlToolBar">
 
-    </intership.dev.contact.widget.LoadMoreListView>
+    </FrameLayout>
 
 </RelativeLayout>

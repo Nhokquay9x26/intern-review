@@ -1,20 +1,25 @@
-package intership.dev.contact.View;
+package intership.dev.contact.fragment;
 
-import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
-import intership.dev.contact.Adapter.ContactAdapter;
-import intership.dev.contact.widget.LoadMoreListView;
-import intership.dev.contact.Model.Contact;
 import intership.dev.contact.R;
+import intership.dev.contact.adapter.ContactAdapter;
+import intership.dev.contact.model.Contact;
+import intership.dev.contact.widget.LoadMoreListView;
 
-
-public class ContactActivity extends Activity {
-
+/**
+ * Created by nhokquay9x26 on 7/22/15.
+ */
+public class ListContactFragment extends Fragment {
     LoadMoreListView lv_Contact;
     ArrayList<Contact> mContacts;
     ContactAdapter adapter;
@@ -25,11 +30,14 @@ public class ContactActivity extends Activity {
     public static final String NAME[] = {"Anh", "Mỹ", "Việt Nam", "Đài Loan", "Nhật", "Hàn Quốc",
             "Thụy Điển", "Nga", "Anh", "Mỹ", "Việt Nam", "Đài Loan", "Nhật", "Hàn Quốc", "Thụy Điển", "Nga"};
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_contact);
-        initList();
+    public static final String DESCRIPTION[] = {"Hello", "Hello", "Xin Chào", "Hào hào", "Nhật", "Hàn Quốc",
+            "Thụy Điển", "Nga", "Anh", "Mỹ", "Việt Nam", "Đài Loan", "Nhật", "Hàn Quốc", "Thụy Điển", "Nga"};
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View v = LayoutInflater.from(getActivity()).inflate(
+                R.layout.fragment_list_contact, container, false);
+        initList(v);
         event();
         lv_Contact.setOnLoadMoreListener(new LoadMoreListView.OnLoadMoreListener() {
             @Override
@@ -37,14 +45,36 @@ public class ContactActivity extends Activity {
                 new LoadDataTask().execute();
             }
         });
+        return v;
     }
 
-    public void initList() {
-        lv_Contact = (LoadMoreListView) findViewById(R.id.lvContacts);
+    public void initList(View v) {
+        lv_Contact = (LoadMoreListView) v.findViewById(R.id.lvContacts);
         mContacts = new ArrayList<Contact>();
-        adapter = new ContactAdapter(this, R.layout.item_list_contact, mContacts);
+        adapter = new ContactAdapter(getActivity(), R.layout.item_list_contact, mContacts);
         lv_Contact.setAdapter(adapter);
 
+        adapter.setOnEditClick(new ContactAdapter.onEditClick() {
+            @Override
+            public void onClick(View v,final int pos) {
+                FragmentManager manager = getFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                EditFragment editFragment = new EditFragment(mContacts.get(pos));
+                transaction.replace(R.id.frContent, editFragment);
+                transaction.addToBackStack("edit");
+                transaction.commit();
+
+                editFragment.setOnClickSave(new EditFragment.onClickSave() {
+                    @Override
+                    public void onClick(Contact contact) {
+                        mContacts.get(pos).setmNameContacts(contact.getmNameContacts());
+                        mContacts.get(pos).setmDescription(
+                                contact.getmDescription());
+                        adapter.notifyDataSetChanged();
+                    }
+                });
+            }
+        });
     }
 
     public void event() {
@@ -52,11 +82,10 @@ public class ContactActivity extends Activity {
             Contact contact = new Contact();
             contact.setmImgContacts(AVATAR[i]);
             contact.setmNameContacts(NAME[i]);
+            contact.setmDescription(DESCRIPTION[i]);
 
             mContacts.add(contact);
         }
-
-
     }
 
     private class LoadDataTask extends AsyncTask<Void, Void, Void> {
@@ -97,5 +126,4 @@ public class ContactActivity extends Activity {
             ((LoadMoreListView) lv_Contact).onLoadMoreComplete();
         }
     }
-
 }

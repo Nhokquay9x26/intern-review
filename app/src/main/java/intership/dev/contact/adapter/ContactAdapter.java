@@ -1,10 +1,9 @@
-package intership.dev.contact.Adapter;
+package intership.dev.contact.adapter;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.text.Html;
@@ -19,7 +18,9 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import intership.dev.contact.Model.Contact;
+import intership.dev.contact.fragment.EditFragment;
+import intership.dev.contact.fragment.ListContactFragment;
+import intership.dev.contact.model.Contact;
 import intership.dev.contact.R;
 
 /**
@@ -42,6 +43,16 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
         this.context = context;
         this.layoutID = layoutID;
         this.mContacts = mContacts;
+    }
+
+    public interface onEditClick{
+        void onClick(View v, int pos);
+    }
+
+    public onEditClick mEditClick;
+
+    public void setOnEditClick(onEditClick editClick){
+        this.mEditClick = editClick;
     }
 
     @Override
@@ -96,8 +107,10 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
 
         holder.imgEdit.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-
+            public void onClick(View v) {
+                if(mEditClick!=null){
+                    mEditClick.onClick(v, position);
+                }
             }
         });
         return convertView;
