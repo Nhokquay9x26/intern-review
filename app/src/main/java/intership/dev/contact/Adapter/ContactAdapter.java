@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -66,12 +67,32 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
             @Override
             public void onClick(View view) {
                 final Dialog dialog = new Dialog(getContext(),R.style.Theme_Dialog);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 dialog.setContentView(R.layout.dialog_delete_contact);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 TextView tvQuestion = (TextView) dialog.findViewById(R.id.tvQuestion);
-                tvQuestion.setText(Html.fromHtml("Are you sure you to delete " + "<b>" + mContacts.get(position).getmNameContacts() + "</b>" + " ?"));
+                tvQuestion.setText(Html.fromHtml("<center>Are you sure you to delete " + "<b>" + mContacts.get(position).getmNameContacts() + "</b>" + " ?</center>"));
                 dialog.show();
-            }
-        });
+
+                Button btnOk = (Button) dialog.findViewById(R.id.btnOk);
+                Button btnCancel = (Button) dialog.findViewById(R.id.btnCancel);
+
+                btnOk.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        mContacts.remove(position);
+                        notifyDataSetChanged();
+                        dialog.dismiss();
+                    }
+                });
+
+                btnCancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+            }       });
 
         holder.imgEdit.setOnClickListener(new View.OnClickListener() {
             @Override

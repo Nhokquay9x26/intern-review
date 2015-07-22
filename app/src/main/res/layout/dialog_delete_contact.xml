@@ -1,54 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="130dp"
-    android:background="@drawable/shape_dialog">
-
-    <RelativeLayout
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:gravity="center">
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_dialog"
+    android:orientation="vertical">
 
         <TextView
             android:id="@+id/tvQuestion"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/texttview.size.tvName"
+            android:layout_margin="10dp"
+            android:text="aaaa"
+            android:gravity="center"
             android:textColor="@color/black"
-            android:layout_centerHorizontal="true"
-            android:text="aaaa" />
+            android:textSize="@dimen/texttview.size.tvName" />
 
-    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line" />
 
     <LinearLayout
-        android:id="@+id/lnButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
-        android:weightSum="2">
+        android:layout_alignParentBottom="true">
 
         <Button
             android:id="@+id/btnOk"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="@color/dialog.color.button"
-            android:textSize="@dimen/textview.size.tvContact"
             android:background="@color/transparent"
-            android:text="@string/textview.text.btn_ok" />
+            android:text="@string/textview.text.btn_ok"
+            android:textColor="@color/dialog.color.button"
+            android:textSize="@dimen/textview.size.tvContact" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/line" />
 
         <Button
             android:id="@+id/btnCancel"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="@color/dialog.color.button"
-            android:textSize="@dimen/textview.size.tvContact"
             android:background="@color/transparent"
-            android:text="@string/textview.text.btn_cancel" />
+            android:text="@string/textview.text.btn_cancel"
+            android:textColor="@color/dialog.color.button"
+            android:textSize="@dimen/textview.size.tvContact" />
 
     </LinearLayout>
-</RelativeLayout>
+
+
+</LinearLayout>
