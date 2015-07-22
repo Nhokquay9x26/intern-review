@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import intership.dev.contact.R;
 import intership.dev.contact.model.Contact;
@@ -21,22 +22,25 @@ public class EditFragment extends Fragment {
     ImageView imgAvatar;
     EditText edtName, edtDescreption;
     Button btnSave, btnCancel;
+    TextView tvName;
     Contact mContact;
 
-    public interface onClickSave{
+    public interface onClickSave {
         void onClick(Contact contact);
     }
 
     public onClickSave mClickSave;
 
-    public void setOnClickSave(onClickSave clicksave){
+    public void setOnClickSave(onClickSave clicksave) {
         this.mClickSave = clicksave;
     }
+
     /**
      * constructor reciver a contact to show GUI
+     *
      * @param contact
      */
-    public EditFragment(Contact contact){
+    public EditFragment(Contact contact) {
         mContact = contact;
         ContactActivity.changeTitle("Infomation");
     }
@@ -51,23 +55,16 @@ public class EditFragment extends Fragment {
     public void initEdit(View v) {
         imgAvatar = (ImageView) v.findViewById(R.id.imgAvatar);
         edtName = (EditText) v.findViewById(R.id.edtName);
+        tvName = (TextView) v.findViewById(R.id.tvName);
         edtDescreption = (EditText) v.findViewById(R.id.edtDescreption);
         btnSave = (Button) v.findViewById(R.id.btnSave);
         btnCancel = (Button) v.findViewById(R.id.btnCancel);
 
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        imgAvatar.setImageResource(mContact.getmImgContacts());
+        edtName.setText(mContact.getmNameContacts());
+        tvName.setText(mContact.getmNameContacts());
+        edtDescreption.setText(mContact.getmDescription());
 
-            }
-        });
-
-        btnCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
     }
 
 }

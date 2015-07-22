@@ -25,10 +25,11 @@ public class ListContactFragment extends Fragment {
     ContactAdapter adapter;
 
     public static final int AVATAR[] = {R.drawable.ic_avt1, R.drawable.ic_avt2, R.drawable.ic_avt3, R.drawable.ic_avt4,
-            R.drawable.ic_avt1, R.drawable.ic_avt2, R.drawable.ic_avt3, R.drawable.ic_avt4, R.drawable.ic_avt1, R.drawable.ic_avt2, R.drawable.ic_avt3, R.drawable.ic_avt4,
+            R.drawable.ic_avt1, R.drawable.ic_avt2, R.drawable.ic_avt3, R.drawable.ic_avt4,
+            R.drawable.ic_avt1, R.drawable.ic_avt2, R.drawable.ic_avt3, R.drawable.ic_avt4,
             R.drawable.ic_avt1, R.drawable.ic_avt2, R.drawable.ic_avt3, R.drawable.ic_avt4};
-    public static final String NAME[] = {"Anh", "Mỹ", "Việt Nam", "Đài Loan", "Nhật", "Hàn Quốc",
-            "Thụy Điển", "Nga", "Anh", "Mỹ", "Việt Nam", "Đài Loan", "Nhật", "Hàn Quốc", "Thụy Điển", "Nga"};
+    public static final String NAME[] = {"Anh", "Mỹ", "Việt Nam", "Đài Loan", "Nhật", "Hàn Quốc", "Thụy Điển",
+            "Nga", "Anh", "Mỹ", "Việt Nam", "Đài Loan", "Nhật", "Hàn Quốc", "Thụy Điển", "Nga"};
 
     public static final String DESCRIPTION[] = {"Hello", "Hello", "Xin Chào", "Hào hào", "Nhật", "Hàn Quốc",
             "Thụy Điển", "Nga", "Anh", "Mỹ", "Việt Nam", "Đài Loan", "Nhật", "Hàn Quốc", "Thụy Điển", "Nga"};
@@ -56,7 +57,7 @@ public class ListContactFragment extends Fragment {
 
         adapter.setOnEditClick(new ContactAdapter.onEditClick() {
             @Override
-            public void onClick(View v,final int pos) {
+            public void onClick(View v, final int pos) {
                 FragmentManager manager = getFragmentManager();
                 FragmentTransaction transaction = manager.beginTransaction();
                 EditFragment editFragment = new EditFragment(mContacts.get(pos));

@@ -36,6 +36,7 @@
         android:layout_marginLeft="@dimen/edittext.marginLeft"
         android:layout_below="@+id/rlInfomation"
         android:layout_width="match_parent"
+        android:background="@android:color/transparent"
         android:layout_centerVertical="true"
         android:visibility="visible"
         android:text="abc"
@@ -48,6 +49,7 @@
         android:layout_below="@+id/edtName"
         android:layout_width="match_parent"
         android:layout_centerVertical="true"
+        android:background="@android:color/transparent"
         android:text="abc"
         android:layout_height="77dp" />
 
