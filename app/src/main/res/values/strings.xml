@@ -7,4 +7,7 @@
     <string name="textview.text.tv_name_contacts">Name</string>
     <string name="textview.text.btn_edit">Edit</string>
     <string name="textview.text.btn_delete">Delete</string>
+
+    <string name="textview.text.btn_ok">Ok</string>
+    <string name="textview.text.btn_cancel">Cancel</string>
 </resources>

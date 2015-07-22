@@ -21,4 +21,7 @@
     <color name="black">#000000</color>
     <color name="ColorPrimary">#00897B</color>
     <color name="tabsScrollColor">#004D40</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="dialog.background">#AAFFFFFF</color>
+    <color name="dialog.color.button">#009DD9</color>
 </resources>

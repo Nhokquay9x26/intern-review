@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    android:background="@drawable/shape_dialog">
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tvQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/texttview.size.tvName"
+            android:textColor="@color/black"
+            android:layout_centerHorizontal="true"
+            android:text="aaaa" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/lnButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btnOk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/dialog.color.button"
+            android:textSize="@dimen/textview.size.tvContact"
+            android:background="@color/transparent"
+            android:text="@string/textview.text.btn_ok" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/dialog.color.button"
+            android:textSize="@dimen/textview.size.tvContact"
+            android:background="@color/transparent"
+            android:text="@string/textview.text.btn_cancel" />
+
+    </LinearLayout>
+</RelativeLayout>

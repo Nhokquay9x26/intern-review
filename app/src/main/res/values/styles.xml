@@ -5,4 +5,10 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="Theme.Dialog" parent="android:Theme.Dialog">
+        <item name="android:windowBackground">@color/dialog.background</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
 </resources>

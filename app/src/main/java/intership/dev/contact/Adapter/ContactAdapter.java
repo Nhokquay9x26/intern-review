@@ -5,10 +5,13 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -62,25 +65,18 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
         holder.imgDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext());
-                alertDialog.setMessage(Html.fromHtml("Are you sure you to delete " + "<b>" + mContacts.get(position).getmNameContacts() + "</b>" + " ?"))
-                        .setTitle(null)
-                        .setInverseBackgroundForced(true)
-                        .setNegativeButton("OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                mContacts.remove(position);
-                                notifyDataSetChanged();
-                                dialogInterface.cancel();
-                            }
-                        })
-                        .setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.cancel();
-                            }
-                        });
-                alertDialog.show();
+                final Dialog dialog = new Dialog(getContext(),R.style.Theme_Dialog);
+                dialog.setContentView(R.layout.dialog_delete_contact);
+                TextView tvQuestion = (TextView) dialog.findViewById(R.id.tvQuestion);
+                tvQuestion.setText(Html.fromHtml("Are you sure you to delete " + "<b>" + mContacts.get(position).getmNameContacts() + "</b>" + " ?"));
+                dialog.show();
+            }
+        });
+
+        holder.imgEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
         return convertView;
