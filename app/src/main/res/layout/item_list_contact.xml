@@ -13,7 +13,9 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/imageview.circle.size.left"
             android:layout_marginRight="@dimen/imageview.circle.size.left"
-            android:src="@drawable/ic_avt1"></intership.dev.contact.widget.CircleImageView>
+            android:src="@drawable/ic_avt1">
+
+        </intership.dev.contact.widget.CircleImageView>
 
         <TextView
             android:id="@+id/tvName"

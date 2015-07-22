@@ -126,7 +126,7 @@ public class LoadMoreListView extends ListView implements OnScrollListener {
         }
 
     }
-    @Override
+
     public void onScrollStateChanged(AbsListView view, int scrollState) {
         mCurrentScrollState = scrollState;
 

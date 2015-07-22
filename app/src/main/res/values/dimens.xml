@@ -19,4 +19,11 @@
     <dimen name="progressbar.padding">3dp</dimen>
     <dimen name="progressbar.width">36dp</dimen>
     <dimen name="progressbar.height">36dp</dimen>
+
+    <dimen name="relativelayout.item.layout_hight_fragment">96dp</dimen>
+    <dimen name="texttview.size.tvName_fragment">23dp</dimen>
+
+    <dimen name="edittext.marginTop.edtName">35dp</dimen>
+    <dimen name="edittext.marginTop.edtDescreption">60dp</dimen>
+    <dimen name="edittext.marginLeft">20dp</dimen>
 </resources>

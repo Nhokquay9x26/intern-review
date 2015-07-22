@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rlToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/relativelayout.list.size.contact"
+        android:background="@color/aqua">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:scaleType="center"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/tvHeaderContacts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/textview.text.tv_header_contacts"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textview.size.tvContact" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlInfomation"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/rlToolBar"
+        android:layout_height="@dimen/relativelayout.item.layout_hight_fragment">
+
+        <intership.dev.contact.widget.CircleImageView
+            android:id="@+id/imgAvatar"
+            android:layout_width="96dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/imageview.circle.size.left"
+            android:layout_marginRight="@dimen/imageview.circle.size.left"
+            android:src="@drawable/ic_avt1">
+
+        </intership.dev.contact.widget.CircleImageView>
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_toRightOf="@+id/imgAvatar"
+            android:text="Name"
+            android:textSize="@dimen/texttview.size.tvName_fragment" />
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/edtName"
+        android:layout_marginTop="@dimen/edittext.marginTop.edtName"
+        android:layout_marginLeft="@dimen/edittext.marginLeft"
+        android:layout_below="@+id/rlInfomation"
+        android:layout_width="match_parent"
+        android:layout_centerVertical="true"
+        android:visibility="visible"
+        android:text="abc"
+        android:layout_height="77dp" />
+
+    <EditText
+        android:id="@+id/edtDescreption"
+        android:layout_marginTop="@dimen/edittext.marginTop.edtDescreption"
+        android:layout_marginLeft="@dimen/edittext.marginLeft"
+        android:layout_below="@+id/edtName"
+        android:layout_width="match_parent"
+        android:layout_centerVertical="true"
+        android:text="abc"
+        android:layout_height="77dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/lnButton"
+        android:background="@color/line" />
+
+    <LinearLayout
+        android:id="@+id/lnButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/btnOk"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:text="@string/textview.text.btn_save"
+            android:textColor="@color/dialog.color.button"
+            android:textSize="@dimen/textview.size.tvContact" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/line" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:text="@string/textview.text.btn_cancel"
+            android:textColor="@color/dialog.color.button"
+            android:textSize="@dimen/textview.size.tvContact" />
+
+    </LinearLayout>
+
+</RelativeLayout>

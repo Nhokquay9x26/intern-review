@@ -20,8 +20,10 @@ public class ContactActivity extends Activity {
     ContactAdapter adapter;
 
     public static final int AVATAR[] = {R.drawable.ic_avt1, R.drawable.ic_avt2, R.drawable.ic_avt3, R.drawable.ic_avt4,
+            R.drawable.ic_avt1, R.drawable.ic_avt2, R.drawable.ic_avt3, R.drawable.ic_avt4, R.drawable.ic_avt1, R.drawable.ic_avt2, R.drawable.ic_avt3, R.drawable.ic_avt4,
             R.drawable.ic_avt1, R.drawable.ic_avt2, R.drawable.ic_avt3, R.drawable.ic_avt4};
-    public static final String NAME[] = {"Anh", "Mỹ", "Việt Nam", "Đài Loan", "Nhật", "Hàn Quốc", "Thụy Điển", "Nga"};
+    public static final String NAME[] = {"Anh", "Mỹ", "Việt Nam", "Đài Loan", "Nhật", "Hàn Quốc",
+            "Thụy Điển", "Nga", "Anh", "Mỹ", "Việt Nam", "Đài Loan", "Nhật", "Hàn Quốc", "Thụy Điển", "Nga"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,12 @@ public class ContactActivity extends Activity {
         setContentView(R.layout.list_contact);
         initList();
         event();
+        lv_Contact.setOnLoadMoreListener(new LoadMoreListView.OnLoadMoreListener() {
+            @Override
+            public void onLoadMore() {
+                new LoadDataTask().execute();
+            }
+        });
     }
 
     public void initList() {
@@ -36,13 +44,7 @@ public class ContactActivity extends Activity {
         mContacts = new ArrayList<Contact>();
         adapter = new ContactAdapter(this, R.layout.item_list_contact, mContacts);
         lv_Contact.setAdapter(adapter);
-        lv_Contact.setOnLoadMoreListener(new LoadMoreListView.OnLoadMoreListener() {
-            @Override
-            public void onLoadMore() {
-                Log.d("TAG", "Load");
-                new LoadDataTask().execute();
-            }
-        });
+
     }
 
     public void event() {
@@ -53,6 +55,8 @@ public class ContactActivity extends Activity {
 
             mContacts.add(contact);
         }
+
+
     }
 
     private class LoadDataTask extends AsyncTask<Void, Void, Void> {
@@ -66,19 +70,12 @@ public class ContactActivity extends Activity {
 
             // Simulates a background task
             try {
-                Thread.sleep(3000);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
 
             }
-            Log.d("TAG", "Load được");
             // add Loadmore Item
-            for (int i = 0; i < NAME.length; i++) {
-                Contact contact = new Contact();
-                contact.setmImgContacts(AVATAR[i]);
-                contact.setmNameContacts(NAME[i]);
-
-                mContacts.add(contact);
-            }
+            event();
             return null;
         }
 
