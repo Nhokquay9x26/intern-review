@@ -30,10 +30,12 @@
 
     </RelativeLayout>
 
-    <ListView
+    <intership.dev.contact.widget.LoadMoreListView
         android:id="@+id/lvContacts"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/rlToolBar"/>
+        android:layout_below="@+id/rlToolBar">
+
+    </intership.dev.contact.widget.LoadMoreListView>
 
 </RelativeLayout>
