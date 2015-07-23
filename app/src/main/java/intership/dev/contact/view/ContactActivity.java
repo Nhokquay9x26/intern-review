@@ -11,18 +11,17 @@ import android.widget.TextView;
 
 import intership.dev.contact.fragment.ListContactFragment;
 import intership.dev.contact.R;
+import intership.dev.contact.model.Contact;
 
 
 public class ContactActivity extends Activity {
     private static TextView tvTitle;
-    ImageView imgBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_contact);
         tvTitle = (TextView) findViewById(R.id.tvHeaderContacts);
-        imgBack = (ImageView) findViewById(R.id.imgBack);
         AddListFragment();
     }
 
@@ -47,12 +46,11 @@ public class ContactActivity extends Activity {
         }
     }
 
+    /**
+     * change title when change fragment
+     * @param title: text for title
+     */
     public static void changeTitle(String title) {
         tvTitle.setText(title);
     }
-
-    public static void backClick(DialogInterface.OnClickListener OnBackClick) {
-
-    }
-
 }

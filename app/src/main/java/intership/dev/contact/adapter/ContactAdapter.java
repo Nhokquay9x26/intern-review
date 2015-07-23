@@ -32,10 +32,14 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
     ArrayList<Contact> mContacts;
 
     /**
-     * @param context The context Activity
-     * @param layoutID The layout of Contact
-     * @param mContacts The arraylist of Contact
+     * This constructor used to initialize the value
+     * from ContactActivity passed
+     *
+     * @param context   The from Activity Main
+     * @param layoutID  The layout custom creat by me
+     * @param mContacts The list of Contact transferred from Main
      */
+
     public ContactAdapter(Activity context, int layoutID, ArrayList<Contact> mContacts) {
         super(context, layoutID, mContacts);
         this.context = context;
@@ -53,6 +57,15 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
         this.mEditClick = editClick;
     }
 
+    /**
+     * function to custom layout, you must override the function
+     * from ContactActivity passed
+     *
+     * @param position    The position of the element in the list contact
+     * @param convertView using it to handel Item
+     * @param parent      The list of Contact transferred from Main
+     * @return View :     return the convertView
+     */
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         final ContactHolder holder;

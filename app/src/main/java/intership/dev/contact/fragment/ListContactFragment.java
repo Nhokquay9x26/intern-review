@@ -20,6 +20,7 @@ import intership.dev.contact.widget.LoadMoreListView;
 
 /**
  * Created by nhokquay9x26 on 7/22/15.
+ * Class
  */
 public class ListContactFragment extends Fragment {
     private static LoadMoreListView lv_Contact;

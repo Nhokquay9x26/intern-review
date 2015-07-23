@@ -21,7 +21,7 @@ import intership.dev.contact.view.ContactActivity;
  * Created by nhokquay9x26 on 7/22/15.
  */
 public class EditFragment extends Fragment {
-    ImageView imgAvatar;
+    private ImageView imgAvatar;
     EditText edtName, edtDescreption;
     Button btnSave, btnCancel;
     TextView tvName;
@@ -39,12 +39,11 @@ public class EditFragment extends Fragment {
 
     /**
      * constructor reciver a contact to show GUI
-     *
      * @param contact
      */
     public EditFragment(Contact contact) {
         mContact = contact;
-        ContactActivity.changeTitle("Infomation");
+        ContactActivity.changeTitle("Contact");
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -104,7 +103,7 @@ public class EditFragment extends Fragment {
 
     @Override
     public void onResume() {
-        ContactActivity.changeTitle("Infomation");
+        ContactActivity.changeTitle("Contact");
         super.onResume();
     }
 }
