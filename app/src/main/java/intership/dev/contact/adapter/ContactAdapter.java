@@ -65,6 +65,7 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
             holder.imgEdit = (ImageView) convertView.findViewById(R.id.imgEdit);
             holder.imgDelete = (ImageView) convertView.findViewById(R.id.imgDeleteOff);
             holder.tvName = (TextView) convertView.findViewById(R.id.tvName);
+            holder.imgDelete.setImageResource(R.drawable.ic_delete);
             convertView.setTag(holder);
         } else {
             holder = (ContactHolder) convertView.getTag();
@@ -76,12 +77,14 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
         holder.imgDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                holder.imgDelete.setImageResource(R.drawable.ic_delete_on);
                 final Dialog dialog = new Dialog(getContext(), R.style.Theme_Dialog);
                 dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 dialog.setContentView(R.layout.dialog_delete_contact);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 TextView tvQuestion = (TextView) dialog.findViewById(R.id.tvQuestion);
                 tvQuestion.setText(Html.fromHtml("<center>Are you sure you to delete " + "<b>" + mContacts.get(position).getmNameContacts() + "</b>" + " ?</center>"));
+                dialog.setCanceledOnTouchOutside(false);
                 dialog.show();
 
                 Button btnOk = (Button) dialog.findViewById(R.id.btnOk);
@@ -99,6 +102,7 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
                 btnCancel.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        holder.imgDelete.setImageResource(R.drawable.ic_delete);
                         dialog.dismiss();
                     }
                 });

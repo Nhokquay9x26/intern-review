@@ -15,25 +15,31 @@ import java.util.ArrayList;
 import intership.dev.contact.R;
 import intership.dev.contact.adapter.ContactAdapter;
 import intership.dev.contact.model.Contact;
+import intership.dev.contact.view.ContactActivity;
 import intership.dev.contact.widget.LoadMoreListView;
 
 /**
  * Created by nhokquay9x26 on 7/22/15.
  */
 public class ListContactFragment extends Fragment {
-    LoadMoreListView lv_Contact;
-    ArrayList<Contact> mContacts;
-    ContactAdapter adapter;
+    private static LoadMoreListView lv_Contact;
+    private static ArrayList<Contact> mContacts = new ArrayList<Contact>();
+    private static ContactAdapter adapter;
 
     public static final int AVATAR[] = {R.drawable.ic_avt1, R.drawable.ic_avt2, R.drawable.ic_avt3, R.drawable.ic_avt4,
             R.drawable.ic_avt1, R.drawable.ic_avt2, R.drawable.ic_avt3, R.drawable.ic_avt4,
-            R.drawable.ic_avt1, R.drawable.ic_avt2, R.drawable.ic_avt3, R.drawable.ic_avt4,
             R.drawable.ic_avt1, R.drawable.ic_avt2, R.drawable.ic_avt3, R.drawable.ic_avt4};
     public static final String NAME[] = {"Anh", "Mỹ", "Việt Nam", "Đài Loan", "Nhật", "Hàn Quốc", "Thụy Điển",
-            "Nga", "Anh", "Mỹ", "Việt Nam", "Đài Loan", "Nhật", "Hàn Quốc", "Thụy Điển", "Nga"};
+            "Nga", "Anh", "Mỹ", "Việt Nam", "Đài Loan"};
 
     public static final String DESCRIPTION[] = {"Hello", "Hello", "Xin Chào", "Hào hào", "Nhật", "Hàn Quốc",
-            "Thụy Điển", "Nga", "Anh", "Mỹ", "Việt Nam", "Đài Loan", "Nhật", "Hàn Quốc", "Thụy Điển", "Nga"};
+            "Thụy Điển", "Nga", "Anh", "Mỹ", "Việt Nam", "Đài Loan"};
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        ContactActivity.changeTitle("Contacts");
+        super.onCreate(savedInstanceState);
+    }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -54,7 +60,6 @@ public class ListContactFragment extends Fragment {
 
     public void initList(View v) {
         lv_Contact = (LoadMoreListView) v.findViewById(R.id.lvContacts);
-        mContacts = new ArrayList<Contact>();
         adapter = new ContactAdapter(getActivity(), R.layout.item_list_contact, mContacts);
         lv_Contact.setAdapter(adapter);
 
