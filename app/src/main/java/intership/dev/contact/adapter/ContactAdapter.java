@@ -30,7 +30,6 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
     Activity context;
     int layoutID;
     ArrayList<Contact> mContacts;
-    ContactHolder holder;
 
     /**
      * @param context
@@ -56,6 +55,7 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
+        final ContactHolder holder;
         if (convertView == null) {
             LayoutInflater inflater = context.getLayoutInflater();
             convertView = inflater.inflate(R.layout.item_list_contact, parent, false);
@@ -95,6 +95,7 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
                     public void onClick(View view) {
                         mContacts.remove(position);
                         notifyDataSetChanged();
+                        holder.imgDelete.setImageResource(R.drawable.ic_delete);
                         dialog.dismiss();
                     }
                 });
