@@ -32,9 +32,9 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
     ArrayList<Contact> mContacts;
 
     /**
-     * @param context
-     * @param layoutID
-     * @param mContacts
+     * @param context The context Activity
+     * @param layoutID The layout of Contact
+     * @param mContacts The arraylist of Contact
      */
     public ContactAdapter(Activity context, int layoutID, ArrayList<Contact> mContacts) {
         super(context, layoutID, mContacts);

@@ -44,8 +44,7 @@
         android:background="@color/gray_3"
         android:paddingLeft="@dimen/edittext.paddingLeft"
         android:layout_marginTop="@dimen/edittext.marginTop.edtDescreption"
-        android:text="abc"
-        android:layout_height="77dp" />
+        android:layout_height="48dp" />
 
     <View
         android:layout_width="match_parent"
@@ -67,8 +66,7 @@
         android:layout_centerVertical="true"
         android:paddingLeft="@dimen/edittext.paddingLeft"
         android:background="@color/gray_3"
-        android:text="abc"
-        android:layout_height="77dp" />
+        android:layout_height="150dp" />
 
     <View
         android:layout_width="match_parent"

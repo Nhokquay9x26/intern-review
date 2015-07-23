@@ -24,6 +24,6 @@
     <dimen name="texttview.size.tvName_fragment">23dp</dimen>
 
     <dimen name="edittext.marginTop.edtName">35dp</dimen>
-    <dimen name="edittext.marginTop.edtDescreption">60dp</dimen>
+    <dimen name="edittext.marginTop.edtDescreption">40dp</dimen>
     <dimen name="edittext.paddingLeft">20dp</dimen>
 </resources>
