@@ -34,7 +34,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/imageview.button.size.left"
             android:scaleType="center"
-            android:src="@drawable/ic_delete" />
+            />
 
         <ImageView
             android:id="@+id/imgEdit"
