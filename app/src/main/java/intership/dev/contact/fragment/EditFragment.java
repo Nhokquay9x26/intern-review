@@ -1,6 +1,8 @@
 package intership.dev.contact.fragment;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -49,6 +51,7 @@ public class EditFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_edit_contact, container, false);
 
         initEdit(v);
+        event();
         return v;
     }
 
@@ -67,4 +70,41 @@ public class EditFragment extends Fragment {
 
     }
 
+    public void event() {
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mClickSave != null) {
+                    Contact contact = new Contact();
+                    contact.setmNameContacts(edtName.getText().toString());
+                    contact.setmDescription(edtDescreption.getText().toString());
+                    mClickSave.onClick(contact);
+                    replaceFragment();
+                }
+            }
+        });
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                replaceFragment();
+            }
+        });
+    }
+
+    private void replaceFragment() {
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        ListContactFragment listContactFragment = new ListContactFragment();
+        transaction.replace(R.id.frContent, listContactFragment);
+        transaction.addToBackStack("main");
+        transaction.commit();
+    }
+
+    @Override
+    public void onResume() {
+        ContactActivity.changeTitle("Infomation");
+        super.onResume();
+    }
 }

@@ -5,6 +5,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +40,9 @@ public class ListContactFragment extends Fragment {
         View v = LayoutInflater.from(getActivity()).inflate(
                 R.layout.fragment_list_contact, container, false);
         initList(v);
-        event();
+        if (mContacts.size() == 0) {
+            event();
+        }
         lv_Contact.setOnLoadMoreListener(new LoadMoreListView.OnLoadMoreListener() {
             @Override
             public void onLoadMore() {
@@ -69,8 +72,7 @@ public class ListContactFragment extends Fragment {
                     @Override
                     public void onClick(Contact contact) {
                         mContacts.get(pos).setmNameContacts(contact.getmNameContacts());
-                        mContacts.get(pos).setmDescription(
-                                contact.getmDescription());
+                        mContacts.get(pos).setmDescription(contact.getmDescription());
                         adapter.notifyDataSetChanged();
                     }
                 });

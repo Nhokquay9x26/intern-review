@@ -33,7 +33,6 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
     ContactHolder holder;
 
     /**
-     *
      * @param context
      * @param layoutID
      * @param mContacts
@@ -45,13 +44,13 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
         this.mContacts = mContacts;
     }
 
-    public interface onEditClick{
+    public interface onEditClick {
         void onClick(View v, int pos);
     }
 
     public onEditClick mEditClick;
 
-    public void setOnEditClick(onEditClick editClick){
+    public void setOnEditClick(onEditClick editClick) {
         this.mEditClick = editClick;
     }
 
@@ -77,7 +76,7 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
         holder.imgDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Dialog dialog = new Dialog(getContext(),R.style.Theme_Dialog);
+                final Dialog dialog = new Dialog(getContext(), R.style.Theme_Dialog);
                 dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 dialog.setContentView(R.layout.dialog_delete_contact);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -103,12 +102,13 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
                         dialog.dismiss();
                     }
                 });
-            }       });
+            }
+        });
 
         holder.imgEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mEditClick!=null){
+                if (mEditClick != null) {
                     mEditClick.onClick(v, position);
                 }
             }

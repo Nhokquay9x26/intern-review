@@ -25,5 +25,5 @@
 
     <dimen name="edittext.marginTop.edtName">35dp</dimen>
     <dimen name="edittext.marginTop.edtDescreption">60dp</dimen>
-    <dimen name="edittext.marginLeft">20dp</dimen>
+    <dimen name="edittext.paddingLeft">20dp</dimen>
 </resources>

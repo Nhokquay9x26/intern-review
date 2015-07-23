@@ -30,28 +30,51 @@
 
     </RelativeLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"
+        android:layout_alignTop="@+id/edtName"/>
+
     <EditText
         android:id="@+id/edtName"
-        android:layout_marginTop="@dimen/edittext.marginTop.edtName"
-        android:layout_marginLeft="@dimen/edittext.marginLeft"
         android:layout_below="@+id/rlInfomation"
         android:layout_width="match_parent"
-        android:background="@android:color/transparent"
         android:layout_centerVertical="true"
-        android:visibility="visible"
+        android:background="@color/gray_3"
+        android:paddingLeft="@dimen/edittext.paddingLeft"
+        android:layout_marginTop="@dimen/edittext.marginTop.edtDescreption"
         android:text="abc"
         android:layout_height="77dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/edtName"
+        android:background="@color/line" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignTop="@+id/edtDescreption"
+        android:background="@color/line" />
 
     <EditText
         android:id="@+id/edtDescreption"
         android:layout_marginTop="@dimen/edittext.marginTop.edtDescreption"
-        android:layout_marginLeft="@dimen/edittext.marginLeft"
         android:layout_below="@+id/edtName"
         android:layout_width="match_parent"
         android:layout_centerVertical="true"
-        android:background="@android:color/transparent"
+        android:paddingLeft="@dimen/edittext.paddingLeft"
+        android:background="@color/gray_3"
         android:text="abc"
         android:layout_height="77dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/edtDescreption"
+        android:background="@color/line" />
 
     <View
         android:layout_width="match_parent"
