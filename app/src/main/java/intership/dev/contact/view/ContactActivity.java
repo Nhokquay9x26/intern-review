@@ -3,15 +3,11 @@ package intership.dev.contact.view;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import intership.dev.contact.fragment.ListContactFragment;
 import intership.dev.contact.R;
-import intership.dev.contact.model.Contact;
 
 
 public class ContactActivity extends Activity {
@@ -20,7 +16,7 @@ public class ContactActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_contact);
+        setContentView(R.layout.contact_activity);
         sTitle = (TextView) findViewById(R.id.tvHeaderContacts);
         AddListFragment();
     }
@@ -48,6 +44,7 @@ public class ContactActivity extends Activity {
 
     /**
      * change title when change fragment
+     *
      * @param title: text for title
      */
     public static void changeTitle(String title) {

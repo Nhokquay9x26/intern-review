@@ -6,7 +6,6 @@
     <RelativeLayout
         android:id="@+id/rlInfomation"
         android:layout_width="match_parent"
-        android:layout_below="@+id/rlToolBar"
         android:layout_height="@dimen/relativelayout.item.layout_hight_fragment">
 
         <intership.dev.contact.widget.CircleImageView
