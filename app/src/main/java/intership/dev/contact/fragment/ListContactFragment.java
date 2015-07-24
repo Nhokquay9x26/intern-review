@@ -20,12 +20,13 @@ import intership.dev.contact.widget.LoadMoreListView;
 
 /**
  * Created by nhokquay9x26 on 7/22/15.
- * Class
+ * Fragment List contact, have one listview contact in this
+ * fragment
  */
 public class ListContactFragment extends Fragment {
-    private static LoadMoreListView lv_Contact;
-    private static ArrayList<Contact> mContacts = new ArrayList<Contact>();
-    private static ContactAdapter adapter;
+    private LoadMoreListView lv_Contact;
+    private static ArrayList<Contact> sContacts = new ArrayList<Contact>();
+    private static ContactAdapter sAdapter;
 
     public static final int AVATAR[] = {R.drawable.ic_avt1, R.drawable.ic_avt2, R.drawable.ic_avt3, R.drawable.ic_avt4,
             R.drawable.ic_avt1, R.drawable.ic_avt2, R.drawable.ic_avt3, R.drawable.ic_avt4,
@@ -47,7 +48,7 @@ public class ListContactFragment extends Fragment {
         View v = LayoutInflater.from(getActivity()).inflate(
                 R.layout.fragment_list_contact, container, false);
         initList(v);
-        if (mContacts.size() == 0) {
+        if (sContacts.size() == 0) {
             event();
         }
         lv_Contact.setOnLoadMoreListener(new LoadMoreListView.OnLoadMoreListener() {
@@ -61,15 +62,15 @@ public class ListContactFragment extends Fragment {
 
     public void initList(View v) {
         lv_Contact = (LoadMoreListView) v.findViewById(R.id.lvContacts);
-        adapter = new ContactAdapter(getActivity(), R.layout.item_list_contact, mContacts);
-        lv_Contact.setAdapter(adapter);
+        sAdapter = new ContactAdapter(getActivity(), R.layout.item_list_contact, sContacts);
+        lv_Contact.setAdapter(sAdapter);
 
-        adapter.setOnEditClick(new ContactAdapter.onEditClick() {
+        sAdapter.setOnEditClick(new ContactAdapter.onEditClick() {
             @Override
             public void onClick(View v, final int pos) {
                 FragmentManager manager = getFragmentManager();
                 FragmentTransaction transaction = manager.beginTransaction();
-                EditFragment editFragment = new EditFragment(mContacts.get(pos));
+                EditFragment editFragment = new EditFragment(sContacts.get(pos));
                 transaction.replace(R.id.frContent, editFragment);
                 transaction.addToBackStack("edit");
                 transaction.commit();
@@ -77,14 +78,18 @@ public class ListContactFragment extends Fragment {
                 editFragment.setOnClickSave(new EditFragment.onClickSave() {
                     @Override
                     public void onClick(Contact contact) {
-                        mContacts.get(pos).setmNameContacts(contact.getmNameContacts());
-                        mContacts.get(pos).setmDescription(contact.getmDescription());
-                        adapter.notifyDataSetChanged();
+                        sContacts.get(pos).setmNameContacts(contact.getmNameContacts());
+                        sContacts.get(pos).setmDescription(contact.getmDescription());
+                        sAdapter.notifyDataSetChanged();
                     }
                 });
             }
         });
     }
+
+    /**
+     * Set data to listview
+     */
 
     public void event() {
         for (int i = 0; i < NAME.length; i++) {
@@ -93,7 +98,7 @@ public class ListContactFragment extends Fragment {
             contact.setmNameContacts(NAME[i]);
             contact.setmDescription(DESCRIPTION[i]);
 
-            mContacts.add(contact);
+            sContacts.add(contact);
         }
     }
 
@@ -121,7 +126,7 @@ public class ListContactFragment extends Fragment {
         protected void onPostExecute(Void result) {
 
             // We need notify the adapter that the data have been changed
-            adapter.notifyDataSetChanged();
+            sAdapter.notifyDataSetChanged();
 
             // Call onLoadMoreComplete when the LoadMore task, has finished
             ((LoadMoreListView) lv_Contact).onLoadMoreComplete();

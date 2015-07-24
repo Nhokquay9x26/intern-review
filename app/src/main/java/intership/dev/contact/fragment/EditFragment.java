@@ -19,26 +19,36 @@ import intership.dev.contact.view.ContactActivity;
 
 /**
  * Created by nhokquay9x26 on 7/22/15.
+ * Class Fragment edit contact
  */
 public class EditFragment extends Fragment {
     private ImageView imgAvatar;
-    EditText edtName, edtDescreption;
-    Button btnSave, btnCancel;
-    TextView tvName;
-    Contact mContact;
+    private EditText edtName, edtDescreption;
+    private Button btnSave, btnCancel;
+    private TextView tvName;
+    private Contact mContact;
 
+    /**
+     * interface for click button save
+     */
     public interface onClickSave {
         void onClick(Contact contact);
     }
 
     public onClickSave mClickSave;
 
+    /**
+     * Set event for button save
+     *
+     * @param clicksave: event click button save
+     */
     public void setOnClickSave(onClickSave clicksave) {
         this.mClickSave = clicksave;
     }
 
     /**
      * constructor reciver a contact to show GUI
+     *
      * @param contact
      */
     public EditFragment(Contact contact) {

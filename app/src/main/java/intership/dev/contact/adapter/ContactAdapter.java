@@ -27,9 +27,9 @@ import intership.dev.contact.R;
  * Created by nhokquay9x26 on 7/21/15.
  */
 public class ContactAdapter extends ArrayAdapter<Contact> {
-    Activity context;
-    int layoutID;
-    ArrayList<Contact> mContacts;
+    private Activity context;
+    private int layoutID;
+    private ArrayList<Contact> mContacts;
 
     /**
      * This constructor used to initialize the value
@@ -47,11 +47,20 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
         this.mContacts = mContacts;
     }
 
+    /**
+     * interface set event for button edit
+     */
     public interface onEditClick {
         void onClick(View v, int pos);
     }
 
     public onEditClick mEditClick;
+
+    /**
+     * Set event for mEditClick
+     *
+     * @param editClick: event from click
+     */
 
     public void setOnEditClick(onEditClick editClick) {
         this.mEditClick = editClick;
@@ -134,6 +143,9 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
         return convertView;
     }
 
+    /**
+     * Holder keep last convertview
+     */
     private static class ContactHolder {
         ImageView imgAvatar, imgEdit, imgDelete;
         TextView tvName;

@@ -15,13 +15,13 @@ import intership.dev.contact.model.Contact;
 
 
 public class ContactActivity extends Activity {
-    private static TextView tvTitle;
+    public static TextView sTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_contact);
-        tvTitle = (TextView) findViewById(R.id.tvHeaderContacts);
+        sTitle = (TextView) findViewById(R.id.tvHeaderContacts);
         AddListFragment();
     }
 
@@ -51,6 +51,6 @@ public class ContactActivity extends Activity {
      * @param title: text for title
      */
     public static void changeTitle(String title) {
-        tvTitle.setText(title);
+        sTitle.setText(title);
     }
 }
