@@ -151,3 +151,4 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
         TextView tvName;
     }
 }
+
