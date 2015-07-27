@@ -107,7 +107,6 @@ public class EditFragment extends Fragment {
         FragmentTransaction transaction = manager.beginTransaction();
         ListContactFragment listContactFragment = new ListContactFragment();
         transaction.replace(R.id.frContent, listContactFragment);
-        transaction.addToBackStack("main");
         transaction.commit();
     }
 

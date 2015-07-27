@@ -72,7 +72,6 @@ public class ListContactFragment extends Fragment {
                 FragmentTransaction transaction = manager.beginTransaction();
                 EditFragment editFragment = new EditFragment(sContacts.get(pos));
                 transaction.replace(R.id.frContent, editFragment);
-                transaction.addToBackStack("edit");
                 transaction.commit();
 
                 editFragment.setOnClickSave(new EditFragment.onClickSave() {

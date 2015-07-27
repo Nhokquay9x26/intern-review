@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import intership.dev.contact.fragment.ListContactFragment;
@@ -26,7 +27,6 @@ public class ContactActivity extends Activity {
         FragmentTransaction transaction = manager.beginTransaction();
         ListContactFragment listContactFragment = new ListContactFragment();
         transaction.replace(R.id.frContent, listContactFragment);
-        transaction.addToBackStack("main");
         transaction.commit();
     }
 
@@ -36,9 +36,9 @@ public class ContactActivity extends Activity {
         if (count == 0) {
             super.onBackPressed();
             this.finish();
+
         } else {
             getFragmentManager().popBackStack();
-            this.finish();
         }
     }
 
